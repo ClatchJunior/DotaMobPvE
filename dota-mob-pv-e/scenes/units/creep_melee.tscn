@@ -1,0 +1,19 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/units/creep.gd" id="1_jimll"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmy3f"]
+albedo_color = Color(0.6, 0.6, 0.6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6rj4p"]
+size = Vector3(0.8, 1.1, 0.8)
+
+[node name="CreepMelee" type="Node3D" unique_id=1135322577]
+script = ExtResource("1_jimll")
+bar_height = 1.7
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=141269246]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+material_override = SubResource("StandardMaterial3D_vmy3f")
+mesh = SubResource("BoxMesh_6rj4p")

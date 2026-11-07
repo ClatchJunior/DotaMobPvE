@@ -1,0 +1,44 @@
+{
+	"q": {
+		"id": "cleave_strike",
+		"kind": "cone",
+		"min_levels": [1, 5, 9],
+		"range": 3.4,
+		"angle_deg": 110,
+		"mana_cost": [40, 45, 50],
+		"cooldown": [6.0, 5.5, 5.0],
+		"damage": [90, 140, 190]
+	},
+	"w": {
+		"id": "guard_dash",
+		"kind": "dash",
+		"min_levels": [1, 5, 9],
+		"distance": [5.0, 5.5, 6.0],
+		"dash_seconds": 0.2,
+		"mana_cost": [50, 50, 50],
+		"cooldown": [12.0, 11.0, 10.0],
+		"damage_reduction": [0.3, 0.4, 0.5],
+		"buff_seconds": 2.5
+	},
+	"r": {
+		"id": "warbreaker",
+		"kind": "area",
+		"min_levels": [6, 11, 19],
+		"radius": [3.5, 4.0, 4.5],
+		"mana_cost": [100, 125, 150],
+		"cooldown": [60.0, 50.0, 40.0],
+		"damage": [150, 250, 350],
+		"stun_seconds": [1.2, 1.5, 1.8],
+		"armor_reduction": [6, 9, 12],
+		"debuff_seconds": 5.0,
+		"interrupts": true
+	},
+	"p": {
+		"id": "battle_instinct",
+		"kind": "passive",
+		"min_levels": [1, 5, 9],
+		"max_stacks": [3, 4, 5],
+		"attack_speed_per_stack": [0.08, 0.1, 0.12],
+		"stack_seconds": 3.0
+	}
+}

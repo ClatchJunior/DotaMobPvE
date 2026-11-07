@@ -1,0 +1,7 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/world/camera_rig.gd" id="1_l1oks"]
+
+[node name="CameraRig" type="Camera3D" unique_id=266908745]
+fov = 42.0
+script = ExtResource("1_l1oks")

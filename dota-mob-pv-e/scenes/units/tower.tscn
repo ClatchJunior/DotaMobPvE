@@ -1,0 +1,22 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/units/structure.gd" id="1_nylt7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmy3f"]
+albedo_color = Color(0.6, 0.6, 0.6, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6gdwu"]
+top_radius = 0.7
+bottom_radius = 1.2
+height = 4.0
+
+[node name="Tower" type="Node3D" unique_id=1262187992]
+script = ExtResource("1_nylt7")
+bar_height = 4.6
+tint_darken = 0.35
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=1797900127]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+material_override = SubResource("StandardMaterial3D_vmy3f")
+mesh = SubResource("CylinderMesh_6gdwu")

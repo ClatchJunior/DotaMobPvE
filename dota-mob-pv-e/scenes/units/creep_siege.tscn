@@ -1,0 +1,19 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/units/creep.gd" id="1_06dyu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmy3f"]
+albedo_color = Color(0.6, 0.6, 0.6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gkkwb"]
+size = Vector3(1.3, 1, 1.6)
+
+[node name="CreepSiege" type="Node3D" unique_id=1909115387]
+script = ExtResource("1_06dyu")
+bar_height = 1.6
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=1503788592]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_vmy3f")
+mesh = SubResource("BoxMesh_gkkwb")

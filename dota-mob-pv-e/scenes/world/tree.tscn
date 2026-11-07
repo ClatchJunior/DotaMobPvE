@@ -1,0 +1,16 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_snahw"]
+albedo_color = Color(0.15, 0.33, 0.17, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_thqfv"]
+top_radius = 0.0
+bottom_radius = 0.85
+height = 2.4
+
+[node name="Tree" type="Node3D" unique_id=739097736]
+
+[node name="Crown" type="MeshInstance3D" parent="." unique_id=364840690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+material_override = SubResource("StandardMaterial3D_snahw")
+mesh = SubResource("CylinderMesh_thqfv")

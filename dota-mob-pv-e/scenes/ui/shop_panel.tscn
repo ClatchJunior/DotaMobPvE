@@ -1,0 +1,158 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/ui/shop_panel.gd" id="1_shop"]
+[ext_resource type="PackedScene" path="res://scenes/ui/inventory_slot.tscn" id="2_slot"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shop"]
+content_margin_left = 16.0
+content_margin_top = 14.0
+content_margin_right = 16.0
+content_margin_bottom = 14.0
+bg_color = Color(0.06, 0.08, 0.12, 0.94)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="ShopPanel" type="PanelContainer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_shop")
+script = ExtResource("1_shop")
+
+[node name="Content" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Header" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="Content/Header"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "shop.title"
+
+[node name="Gold" type="Label" parent="Content/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_font_sizes/font_size = 17
+
+[node name="Status" type="Label" parent="Content/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+
+[node name="Close" type="Button" parent="Content/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 44)
+layout_mode = 2
+focus_mode = 0
+text = "shop.close"
+
+[node name="Body" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Catalog" type="GridContainer" parent="Content/Body"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 3
+
+[node name="Details" type="VBoxContainer" parent="Content/Body"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Name" type="Label" parent="Content/Body/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+autowrap_mode = 3
+
+[node name="Recipe" type="Label" parent="Content/Body/Details"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+
+[node name="Price" type="Label" parent="Content/Body/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="Stats" type="Label" parent="Content/Body/Details"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+
+[node name="Active" type="Label" parent="Content/Body/Details"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+
+[node name="Spacer" type="Control" parent="Content/Body/Details"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Buy" type="Button" parent="Content/Body/Details"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 52)
+layout_mode = 2
+focus_mode = 0
+text = "shop.buy"
+
+[node name="Footer" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Slots" type="HBoxContainer" parent="Content/Footer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Slot1" parent="Content/Footer/Slots" instance=ExtResource("2_slot")]
+layout_mode = 2
+
+[node name="Slot2" parent="Content/Footer/Slots" instance=ExtResource("2_slot")]
+layout_mode = 2
+index = 1
+
+[node name="Slot3" parent="Content/Footer/Slots" instance=ExtResource("2_slot")]
+layout_mode = 2
+index = 2
+
+[node name="Slot4" parent="Content/Footer/Slots" instance=ExtResource("2_slot")]
+layout_mode = 2
+index = 3
+
+[node name="Slot5" parent="Content/Footer/Slots" instance=ExtResource("2_slot")]
+layout_mode = 2
+index = 4
+
+[node name="Slot6" parent="Content/Footer/Slots" instance=ExtResource("2_slot")]
+layout_mode = 2
+index = 5
+
+[node name="Sell" type="Button" parent="Content/Footer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 52)
+layout_mode = 2
+focus_mode = 0
+text = "shop.sell"

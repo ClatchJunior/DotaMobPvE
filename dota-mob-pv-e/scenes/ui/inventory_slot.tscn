@@ -1,0 +1,11 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/ui/inventory_slot.gd" id="1_slot"]
+
+[node name="InventorySlot" type="Button"]
+custom_minimum_size = Vector2(84, 64)
+focus_mode = 0
+theme_override_font_sizes/font_size = 15
+toggle_mode = true
+text = "-"
+script = ExtResource("1_slot")

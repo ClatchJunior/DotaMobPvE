@@ -1,0 +1,12 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/ui/item_card.gd" id="1_card"]
+
+[node name="ItemCard" type="Button"]
+custom_minimum_size = Vector2(140, 58)
+focus_mode = 0
+theme_override_font_sizes/font_size = 15
+toggle_mode = true
+text = "-"
+autowrap_mode = 3
+script = ExtResource("1_card")

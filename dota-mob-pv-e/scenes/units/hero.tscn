@@ -1,0 +1,48 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/units/hero.gd" id="1_3qpht"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3qr3m"]
+albedo_color = Color(0.1, 0.85, 0.75, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yj61j"]
+height = 1.9
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rv04"]
+albedo_color = Color(0.75, 0.75, 0.8, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dpf54"]
+size = Vector3(0.9, 1, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57sue"]
+albedo_color = Color(0.85, 0.88, 0.95, 1)
+metallic = 0.6
+
+[sub_resource type="BoxMesh" id="BoxMesh_11s45"]
+size = Vector3(0.12, 0.08, 1.5)
+
+[node name="Hero" type="Node3D" unique_id=1493681823]
+script = ExtResource("1_3qpht")
+bar_height = 2.5
+tint_by_faction = false
+tint_darken = 0.0
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=1523147796]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+material_override = SubResource("StandardMaterial3D_3qr3m")
+mesh = SubResource("CapsuleMesh_yj61j")
+
+[node name="Shield" type="MeshInstance3D" parent="Body" unique_id=2069759511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.55)
+material_override = SubResource("StandardMaterial3D_5rv04")
+mesh = SubResource("BoxMesh_dpf54")
+
+[node name="SwordPivot" type="Node3D" parent="Body" unique_id=2116874712]
+unique_name_in_owner = true
+transform = Transform3D(0.4535961, 0, -0.8912074, 0, 1, 0, 0.8912074, 0, 0.4535961, 0, 0.2, 0)
+
+[node name="Sword" type="MeshInstance3D" parent="Body/SwordPivot" unique_id=656733097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.95)
+material_override = SubResource("StandardMaterial3D_57sue")
+mesh = SubResource("BoxMesh_11s45")

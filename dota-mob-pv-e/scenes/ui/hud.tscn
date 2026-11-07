@@ -1,0 +1,497 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/ui/hud.gd" id="1_h022r"]
+[ext_resource type="Script" path="res://src/ui/world_overlay.gd" id="2_4jqwt"]
+[ext_resource type="Script" path="res://src/ui/minimap.gd" id="3_kicr4"]
+[ext_resource type="PackedScene" path="res://scenes/ui/touch_pad.tscn" id="4_mj13f"]
+[ext_resource type="PackedScene" path="res://scenes/ui/death_panel.tscn" id="5_0h1do"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_panel.tscn" id="6_4d46k"]
+[ext_resource type="PackedScene" path="res://scenes/ui/upgrade_panel.tscn" id="7_erw67"]
+[ext_resource type="PackedScene" path="res://scenes/ui/end_panel.tscn" id="8_gonto"]
+[ext_resource type="PackedScene" path="res://scenes/ui/shop_panel.tscn" id="9_shop"]
+
+[sub_resource type="Theme" id="Theme_cwdlq"]
+default_font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6xly"]
+bg_color = Color(0, 0, 0, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_we3sy"]
+bg_color = Color(0.75, 0.55, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65nxt"]
+bg_color = Color(0, 0, 0, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_el1dq"]
+bg_color = Color(0.3, 0.9, 0.4, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmc6u"]
+bg_color = Color(0, 0, 0, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1e6lo"]
+bg_color = Color(0.35, 0.6, 1, 1)
+
+[node name="Hud" type="CanvasLayer" unique_id=1425087719]
+script = ExtResource("1_h022r")
+
+[node name="Root" type="Control" parent="." unique_id=2119199328]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = SubResource("Theme_cwdlq")
+
+[node name="Overlay" type="Control" parent="Root" unique_id=625136470]
+unique_name_in_owner = true
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource("2_4jqwt")
+
+[node name="Minimap" type="Control" parent="Root" unique_id=235379195]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 192.0
+offset_bottom = 192.0
+mouse_filter = 2
+script = ExtResource("3_kicr4")
+
+[node name="StatsLabel" type="Label" parent="Root" unique_id=1943673498]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 196.0
+offset_right = 16.0
+offset_bottom = 196.0
+theme_override_font_sizes/font_size = 17
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+
+[node name="XpBar" type="ProgressBar" parent="Root" unique_id=1084736147]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 300.0
+offset_right = 192.0
+offset_bottom = 308.0
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_o6xly")
+theme_override_styles/fill = SubResource("StyleBoxFlat_we3sy")
+show_percentage = false
+
+[node name="PauseButton" type="Button" parent="Root" unique_id=770369429]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 60)
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -84.0
+offset_top = 14.0
+offset_right = -20.0
+offset_bottom = 74.0
+focus_mode = 0
+text = "II"
+
+[node name="Joystick" parent="Root" unique_id=1258840170 instance=ExtResource("4_mj13f")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -290.0
+offset_right = 290.0
+offset_bottom = -50.0
+is_joystick = true
+
+[node name="AttackPad" parent="Root" unique_id=1077319090 instance=ExtResource("4_mj13f")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -230.0
+offset_top = -230.0
+offset_right = -50.0
+offset_bottom = -50.0
+label_key = "hud.attack"
+accent = Color(1, 0.75, 0.4, 1)
+
+[node name="LastHitPad" parent="Root" unique_id=852815073 instance=ExtResource("4_mj13f")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -466.0
+offset_top = -81.0
+offset_right = -394.0
+offset_bottom = -9.0
+label_key = "hud.last_hit"
+
+[node name="TowerPad" parent="Root" unique_id=965377935 instance=ExtResource("4_mj13f")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -81.0
+offset_top = -311.0
+offset_right = -9.0
+offset_bottom = -239.0
+label_key = "hud.tower"
+
+[node name="RecallPad" parent="Root" unique_id=1765848892 instance=ExtResource("4_mj13f")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = -110.0
+offset_right = 380.0
+offset_bottom = -30.0
+label_key = "hud.recall"
+accent = Color(0.5, 0.8, 1, 1)
+
+[node name="QPad" parent="Root" unique_id=1169075865 instance=ExtResource("4_mj13f")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -375.0
+offset_top = -165.0
+offset_right = -265.0
+offset_bottom = -55.0
+label_key = "Q"
+accent = Color(0.55, 0.95, 0.85, 1)
+rank = 0
+
+[node name="WPad" parent="Root" unique_id=1552231869 instance=ExtResource("4_mj13f")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -345.0
+offset_top = -320.0
+offset_right = -235.0
+offset_bottom = -210.0
+label_key = "W"
+accent = Color(0.55, 0.95, 0.85, 1)
+rank = 0
+
+[node name="RPad" parent="Root" unique_id=1342063289 instance=ExtResource("4_mj13f")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -195.0
+offset_top = -380.0
+offset_right = -85.0
+offset_bottom = -270.0
+label_key = "R"
+accent = Color(1, 0.55, 0.3, 1)
+rank = 0
+
+[node name="PPad" parent="Root" unique_id=1992521248 instance=ExtResource("4_mj13f")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -73.0
+offset_top = -92.0
+offset_right = -17.0
+offset_bottom = -36.0
+mouse_filter = 2
+label_key = "P"
+accent = Color(0.55, 0.95, 0.85, 1)
+rank = 0
+
+[node name="CancelZone" parent="Root" unique_id=166890470 instance=ExtResource("4_mj13f")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -515.0
+offset_top = -375.0
+offset_right = -425.0
+offset_bottom = -285.0
+mouse_filter = 2
+label_key = "cast.cancel"
+accent = Color(1, 0.35, 0.35, 1)
+
+[node name="UpgradeQ" type="Button" parent="Root" unique_id=926097865]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -385.0
+offset_top = -175.0
+offset_right = -345.0
+offset_bottom = -135.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 24
+text = "+"
+
+[node name="UpgradeW" type="Button" parent="Root" unique_id=474403797]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -355.0
+offset_top = -330.0
+offset_right = -315.0
+offset_bottom = -290.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 24
+text = "+"
+
+[node name="UpgradeR" type="Button" parent="Root" unique_id=802050046]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -205.0
+offset_top = -390.0
+offset_right = -165.0
+offset_bottom = -350.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 24
+text = "+"
+
+[node name="UpgradeP" type="Button" parent="Root" unique_id=2141643153]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -83.0
+offset_top = -102.0
+offset_right = -43.0
+offset_bottom = -62.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 24
+text = "+"
+
+[node name="Bars" type="VBoxContainer" parent="Root" unique_id=1403159692]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -78.0
+offset_right = 150.0
+offset_bottom = -16.0
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="HpLabel" type="Label" parent="Root/Bars" unique_id=1471633972]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+horizontal_alignment = 1
+
+[node name="HpBar" type="ProgressBar" parent="Root/Bars" unique_id=1247589556]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 16)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_65nxt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_el1dq")
+show_percentage = false
+
+[node name="ManaBar" type="ProgressBar" parent="Root/Bars" unique_id=662208012]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 10)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_gmc6u")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1e6lo")
+show_percentage = false
+
+[node name="Toast" type="Label" parent="Root" unique_id=1136797560]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 96.0
+offset_right = 400.0
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+horizontal_alignment = 1
+
+[node name="ShopButton" type="Button" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 316.0
+offset_right = 192.0
+offset_bottom = 362.0
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_font_sizes/font_size = 18
+text = "hud.shop"
+
+[node name="ItemPad1" parent="Root" instance=ExtResource("4_mj13f")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -232.0
+offset_top = 84.0
+offset_right = -168.0
+offset_bottom = 148.0
+accent = Color(0.95, 0.82, 0.45, 1)
+
+[node name="ItemPad2" parent="Root" instance=ExtResource("4_mj13f")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_top = 84.0
+offset_right = -96.0
+offset_bottom = 148.0
+accent = Color(0.95, 0.82, 0.45, 1)
+
+[node name="ItemPad3" parent="Root" instance=ExtResource("4_mj13f")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -88.0
+offset_top = 84.0
+offset_right = -24.0
+offset_bottom = 148.0
+accent = Color(0.95, 0.82, 0.45, 1)
+
+[node name="ItemPad4" parent="Root" instance=ExtResource("4_mj13f")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -232.0
+offset_top = 156.0
+offset_right = -168.0
+offset_bottom = 220.0
+accent = Color(0.95, 0.82, 0.45, 1)
+
+[node name="ItemPad5" parent="Root" instance=ExtResource("4_mj13f")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_top = 156.0
+offset_right = -96.0
+offset_bottom = 220.0
+accent = Color(0.95, 0.82, 0.45, 1)
+
+[node name="ItemPad6" parent="Root" instance=ExtResource("4_mj13f")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -88.0
+offset_top = 156.0
+offset_right = -24.0
+offset_bottom = 220.0
+accent = Color(0.95, 0.82, 0.45, 1)
+
+[node name="PotionPad" parent="Root" instance=ExtResource("4_mj13f")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -226.0
+offset_top = -80.0
+offset_right = -166.0
+offset_bottom = -20.0
+label_key = "hud.potion"
+accent = Color(0.45, 0.95, 0.55, 1)
+
+[node name="DeathPanel" parent="Root" unique_id=2068325135 instance=ExtResource("5_0h1do")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="PausePanel" parent="Root" unique_id=1807440759 instance=ExtResource("6_4d46k")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="UpgradePanel" parent="Root" unique_id=2005980368 instance=ExtResource("7_erw67")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="ShopPanel" parent="Root" instance=ExtResource("9_shop")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="EndPanel" parent="Root" unique_id=567499923 instance=ExtResource("8_gonto")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="FatalLabel" type="Label" parent="Root" unique_id=843165324]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1

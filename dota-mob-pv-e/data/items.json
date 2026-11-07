@@ -1,0 +1,33 @@
+{
+	"blade": {"kind": "component", "price": 350, "stats": {"damage": 12}},
+	"hilt": {"kind": "component", "price": 300, "stats": {"attack_speed": 0.12}},
+	"plate": {"kind": "component", "price": 300, "stats": {"armor": 4}},
+	"heart": {"kind": "component", "price": 350, "stats": {"max_hp": 180}},
+	"focus": {"kind": "component", "price": 300, "stats": {"max_mana": 100}},
+	"crystal": {"kind": "component", "price": 250, "stats": {"mana_regen": 1.0}},
+	"boots": {"kind": "component", "price": 300, "stats": {"move_speed": 0.6}},
+
+	"onslaught_blade": {"kind": "item", "price": 950, "components": ["blade", "hilt"],
+		"stats": {"damage": 18, "attack_speed": 0.15, "cleave_share": 0.35},
+		"active": {"kind": "attack_speed_buff", "value": 0.6, "seconds": 4, "cooldown": 25}},
+	"bastion": {"kind": "item", "price": 1000, "components": ["plate", "heart"],
+		"stats": {"max_hp": 320, "armor": 7},
+		"active": {"kind": "shield", "value": 260, "seconds": 3, "cooldown": 30}},
+	"aether_focus": {"kind": "item", "price": 850, "components": ["focus", "crystal"],
+		"stats": {"max_mana": 180, "mana_regen": 2.5},
+		"active": {"kind": "restore_mana", "value": 150, "cooldown": 45}},
+	"signal_banner": {"kind": "item", "price": 900, "components": ["plate", "focus"],
+		"stats": {"armor": 6, "max_mana": 80},
+		"active": {"kind": "creep_ward", "value": 0.35, "radius": 9, "seconds": 5, "cooldown": 30}},
+	"binding_blade": {"kind": "item", "price": 950, "components": ["blade", "focus"],
+		"stats": {"damage": 18, "max_mana": 80},
+		"active": {"kind": "stun_nearest", "radius": 6, "seconds": 1.2, "cooldown": 20}},
+	"march_boots": {"kind": "item", "price": 800, "components": ["boots", "hilt"],
+		"stats": {"move_speed": 1.0, "attack_speed": 0.08},
+		"active": {"kind": "haste", "value": 0.45, "seconds": 3, "cooldown": 20}},
+
+	"potion_hp": {"kind": "consumable", "price": 60, "max_stack": 3,
+		"active": {"kind": "regen_hp", "value": 280, "seconds": 10, "cooldown": 10, "cooldown_group": "potion"}},
+	"potion_mana": {"kind": "consumable", "price": 60, "max_stack": 3,
+		"active": {"kind": "regen_mana", "value": 140, "seconds": 10, "cooldown": 10, "cooldown_group": "potion"}}
+}

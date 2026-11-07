@@ -1,0 +1,110 @@
+[gd_scene format=3]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ag6m"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(0.06, 0.08, 0.12, 0.9)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="PausePanel" type="PanelContainer" unique_id=1807440759]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2ag6m")
+
+[node name="Content" type="VBoxContainer" parent="." unique_id=70384534]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Content" unique_id=888254649]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "pause.title"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="Content" unique_id=537125419]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 56)
+layout_mode = 2
+focus_mode = 0
+text = "pause.resume"
+
+[node name="Mode" type="Button" parent="Content" unique_id=1017694874]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 56)
+layout_mode = 2
+focus_mode = 0
+
+[node name="Priority" type="Button" parent="Content" unique_id=794678509]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 56)
+layout_mode = 2
+focus_mode = 0
+
+[node name="Language" type="Button" parent="Content" unique_id=1733132021]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 56)
+layout_mode = 2
+focus_mode = 0
+
+[node name="Restart" type="Button" parent="Content" unique_id=1027921524]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 56)
+layout_mode = 2
+focus_mode = 0
+text = "pause.restart"
+
+[node name="DebugRow" type="HBoxContainer" parent="Content" unique_id=454546432]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="DebugLevelUp" type="Button" parent="Content/DebugRow" unique_id=179663926]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(190, 48)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 16
+text = "debug.level_up"
+
+[node name="DebugMaxAll" type="Button" parent="Content/DebugRow" unique_id=1934117683]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(190, 48)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 16
+text = "debug.max_all"
+
+[node name="DebugRefill" type="Button" parent="Content/DebugRow" unique_id=1678538833]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(190, 48)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 16
+text = "debug.refill"
+
+[node name="Note" type="Label" parent="Content" unique_id=670355941]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "pause.build_note"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Controls" type="Label" parent="Content" unique_id=1846453597]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "pause.controls"
+horizontal_alignment = 1
+autowrap_mode = 3

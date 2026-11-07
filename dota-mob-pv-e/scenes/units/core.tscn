@@ -1,0 +1,21 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/units/structure.gd" id="1_jr1n4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmy3f"]
+albedo_color = Color(0.6, 0.6, 0.6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_obrf5"]
+size = Vector3(3.6, 3, 3.6)
+
+[node name="Core" type="Node3D" unique_id=701936854]
+script = ExtResource("1_jr1n4")
+is_core = true
+bar_height = 3.6
+tint_darken = 0.3
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=809320110]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+material_override = SubResource("StandardMaterial3D_vmy3f")
+mesh = SubResource("BoxMesh_obrf5")

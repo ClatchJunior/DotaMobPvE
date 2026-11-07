@@ -1,0 +1,7 @@
+# Agent scratch: logs, captures, review workspaces
+.tmp/
+.tmp-gdd-review/
+GDD-review/
+
+# Third-party reference screenshots (Dota 2, Mobile Legends): internal design doc only, never pushed
+design-doc/attachments/moba-siege/ref-*

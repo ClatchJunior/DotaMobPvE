@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/main.gd" id="1_tbgi4"]
+[ext_resource type="PackedScene" path="res://scenes/world/map.tscn" id="2_tefeu"]
+[ext_resource type="Script" path="res://src/match/match.gd" id="3_o6xl0"]
+[ext_resource type="PackedScene" path="res://scenes/world/camera_rig.tscn" id="4_tipki"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="5_85g3d"]
+
+[sub_resource type="Environment" id="Environment_choun"]
+background_mode = 1
+background_color = Color(0.1, 0.12, 0.14, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.75, 0.78, 0.82, 1)
+ambient_light_energy = 0.6
+
+[node name="Main" type="Node3D" unique_id=404386887]
+script = ExtResource("1_tbgi4")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1439217588]
+environment = SubResource("Environment_choun")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=106049135]
+transform = Transform3D(0.81915206, 0.46984634, -0.32898995, 0, 0.57357645, 0.81915206, 0.57357645, -0.6710101, 0.46984634, 0, 0, 0)
+light_energy = 1.1
+shadow_enabled = true
+
+[node name="Map" parent="." unique_id=1369078945 instance=ExtResource("2_tefeu")]
+unique_name_in_owner = true
+
+[node name="Match" type="Node3D" parent="." unique_id=946368964]
+unique_name_in_owner = true
+script = ExtResource("3_o6xl0")
+
+[node name="CameraRig" parent="." unique_id=266908745 instance=ExtResource("4_tipki")]
+unique_name_in_owner = true
+
+[node name="Hud" parent="." unique_id=1425087719 instance=ExtResource("5_85g3d")]
+unique_name_in_owner = true
